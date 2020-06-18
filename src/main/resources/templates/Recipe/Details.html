@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+</head>
+<body  style="background-color:#b3b3b3;">
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="rounded mx-auto d-block">
+
+                <img class="mx-auto d-block" th:src="@{'/imageeeee/' + ${recipe.id}}" style="width:500px;height:500px;">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-sm-2">
+            <h2 th:text="${recipe.name}" class="text-center"></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-sm-2">
+            <ul>
+                <li th:each="ingredient : ${recipe.ingredients}" th:text="${ingredient.name}"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-sm-2">
+            <p th:text="${recipe.description}" class="text-center">
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+</div>
+</body>
+</html>

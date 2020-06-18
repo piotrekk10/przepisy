@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container">
+    <table class="table table-dark">
+        <tr>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Trudność</th>
+            <th scope="col">Zdjecie</th>
+            <th scope="col">Szczegóły</th>
+            <th sec:authorize="hasRole('ROLE_admin')" scope="col">Delete</th>
+
+
+        </tr>
+        <tr th:each="recipe : ${recipes}">
+            <th scope="row" th:text="${recipe.name}"></th>
+            <th th:text="${recipe.difficulty}"></th>
+            <th><img th:src="@{'/image/' + ${recipe.id}}" style="width: 100px;height: 100px;"></th>
+            <th>
+                <a th:href="@{/Recipe/{id}(id=${recipe.id})}">
+                    <button >Szczegóły</button>
+                </a>
+            </th>
+            <th sec:authorize="hasRole('ROLE_admin')" >
+                <a th:href="@{/Recipe/Delete/{id}(id=${recipe.id})}">
+                    <button >Usuń</button>
+                </a>
+            </th>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,13 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="_others :: head">
+<head>
     <meta charset="UTF-8">
     <title>Logowanie</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 </head>
 <body>
 <div th:replace="fragments/header :: header">
 </div>
+<div class="container">
+    <div class="row">
+        <div class="rounded mx-auto d-block">
 <form th:action="@{/login}" method="post">
     <div>
         <label> User Name : <input type="text" name="Login" />
@@ -21,6 +26,8 @@
         <input type="submit" value="Zaloguj sie" />
     </div>
 </form>
+</div>
+</div>
 </div>
 </body>
 </html>

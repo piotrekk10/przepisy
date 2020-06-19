@@ -12,7 +12,7 @@
 
 
 </head>
-<body>
+<body style="background-color:#b3b3b3;">
 <div th:replace="fragments/header :: header">
 </div>
 <div class="container">
@@ -22,7 +22,6 @@
             <th scope="col">Trudność</th>
             <th scope="col">Zdjecie</th>
             <th scope="col">Szczegóły</th>
-            <th sec:authorize="hasRole('ROLE_admin')" scope="col">Delete</th>
 
 
         </tr>
@@ -33,11 +32,6 @@
             <th>
                 <a th:href="@{/Recipe/{id}(id=${recipe.id})}">
                     <button >Szczegóły</button>
-                </a>
-            </th>
-            <th sec:authorize="hasRole('ROLE_admin')" >
-                <a th:href="@{/Recipe/Delete/{id}(id=${recipe.id})}">
-                    <button >Usuń</button>
                 </a>
             </th>
         </tr>
